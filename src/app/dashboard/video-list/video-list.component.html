@@ -3,13 +3,17 @@
     Video List
   </mat-card-title>
   <mat-card-content>
-    <mat-list *ngFor="let item of videoList; even as backgroundStripe; index as id"
+    <!-- <mat-list *ngFor="let item of videoList; even as backgroundStripe; index as id"
       [class.bg-stripe]="backgroundStripe">
       <mat-list-item (click)="setHighlight(item)" [class.selected]="highlightedVideo?.id === item.id">
         <mat-icon mat-list-icon>video_library</mat-icon>
         <div mat-line>{{item.title}}</div>
         <div mat-line>{{item.author}}</div>
       </mat-list-item>
+    </mat-list> -->
+    <mat-list *ngFor="let item of videoList; even as backgroundStripe;" [class.bg-stripe]="backgroundStripe">
+      <app-video-detail (click)="setHighlight(item)" [item]="item" [highlightedVideoId]="highlightedVideo?.id">
+      </app-video-detail>
     </mat-list>
   </mat-card-content>
 </mat-card>
