@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>
+    Video List
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list *ngFor="let item of videoList">
+      <mat-list-item>
+        <div mat-line>{{item.title}}</div>
+        <div mat-line>{{item.author}}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

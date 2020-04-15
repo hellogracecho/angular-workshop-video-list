@@ -1,0 +1,20 @@
+.body {
+  padding: 20px;
+  display: grid;
+  grid-template-areas:
+    "list player filters";
+  grid-template-columns: 400px 2fr 1fr;
+  column-gap: 20px;
+
+  app-video-list {
+    grid-area: "list";
+  }
+
+  app-video-player {
+    grid-area: "list";
+  }
+
+  app-video-filters {
+    grid-area: "filters";
+  }
+}
