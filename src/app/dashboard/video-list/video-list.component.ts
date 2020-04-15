@@ -8,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
   videoList: Video[] = VIDEO_STATIC_DATA;
+  isSelected = false;
+  selectedIndex: number;
+  highlightedVideo;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setHighlight(videoItem: Video) {
+    this.highlightedVideo = videoItem;
+  }
 }
 
 // observable(): Observable<any> {
