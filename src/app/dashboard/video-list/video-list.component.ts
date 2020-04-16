@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
   @Input() videoList: Video[] = [];
+  @Output() onSelectedVideo = new EventEmitter<Video>();
   highlightedVideo;
 
   constructor() { }
@@ -17,6 +18,7 @@ export class VideoListComponent implements OnInit {
 
   setHighlight(videoItem: Video) {
     this.highlightedVideo = videoItem;
+    this.onSelectedVideo.emit(videoItem);
   }
 
 }
