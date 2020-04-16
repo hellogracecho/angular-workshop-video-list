@@ -14,9 +14,9 @@ export class VideoDataService {
   constructor(private http: HttpClient) { }
 
   loadVideos(): Observable<Video[]> {
+    // ** example of pipe .. convert title to uppercase
     return this.http
       .get<Video[]>(API + '/videos')
-      // ** example of pipe .. convert title to uppercase
       .pipe(map(videos => {
         videos.forEach(video => {
           video.title = video.title.toUpperCase();

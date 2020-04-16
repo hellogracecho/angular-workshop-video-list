@@ -9,6 +9,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: VideoDashboardComponent }
@@ -27,6 +28,7 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule,
     MaterialModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })

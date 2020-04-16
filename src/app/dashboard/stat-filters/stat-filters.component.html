@@ -3,6 +3,49 @@
     Video Filters
   </mat-card-title>
   <mat-card-content>
-    filters
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+      <div class="flex">
+        <span>* is required field</span>
+        <button mat-flat-button color="accent" (click)="onCancel()">Reset <span class="material-icons">
+            cached
+          </span></button>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title" required>
+        <mat-error *ngIf="filterForm.hasError('required', 'title') && filterForm.get('title').touched">Please enter the
+          title</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput type="text" formControlName="author">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Region</mat-label>
+        <mat-select formControlName="region">
+          <mat-option *ngFor="let region of regionOptions" [value]="region.value">
+            {{region.displayValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="filterForm.hasError('required', 'region') && filterForm.get('region').touched">Please select
+          the
+          region</mat-error>
+      </mat-form-field>
+
+      <p>Age Range</p>
+      <section *ngFor="let age of ageOptions">
+        <mat-checkbox [formControlName]=age.value>{{age.displayValue}}</mat-checkbox>
+      </section>
+
+      <!-- TODO age radio button.. -->
+
+      <div class="align-right">
+        <button mat-flat-button color="primary" type="submit"
+          [disabled]="!(filterForm.valid && filterForm.dirty)">Search</button>
+      </div>
+
+    </form>
   </mat-card-content>
 </mat-card>

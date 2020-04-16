@@ -28,6 +28,3 @@ export class VideoDashboardComponent implements OnInit {
     this.selectedVideo = video;
   }
 }
-
-
-const API = 'https://api.angularbootcamp.com/';
