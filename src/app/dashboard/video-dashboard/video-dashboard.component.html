@@ -1,5 +1,6 @@
 <div class="body">
-  <app-video-list [videoList]="dataForVideoList" (onSelectedVideo)="onHandlingSelectedVideo($event)"></app-video-list>
+  <app-video-list [videoList]="dataForVideoList | async" (onSelectedVideo)="onHandlingSelectedVideo($event)">
+  </app-video-list>
   <app-video-player [video]="selectedVideo"></app-video-player>
   <app-stat-filters></app-stat-filters>
 </div>
